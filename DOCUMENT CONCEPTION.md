@@ -45,6 +45,7 @@ La portée de ce projet est limitée à la gestion d'un tournoi simple. Le tourn
 ---
 
 ## Schéma de la Base de Données
+
 ```mermaid
 erDiagram
     JOUEURS {
@@ -52,7 +53,6 @@ erDiagram
         STRING nom
         STRING classement
     }
-
     TOURNOIS {
         INT tournoi_id
         STRING nom
@@ -60,7 +60,6 @@ erDiagram
         DATE date_debut
         DATE date_fin
     }
-
     MATCHS {
         INT match_id
         INT tournoi_id
@@ -68,26 +67,25 @@ erDiagram
         INT joueur_2_id
         STRING score_match
     }
-
     RESULTATS {
         INT resultats_id
         INT match_id
         INT gagnant_id
     }
-
     INSCRIPTIONS {
         INT inscription_id
         INT joueur_id
         INT tournoi_id
     }
+    
+    INSCRIPTIONS ||--|| JOUEURS : "inscrit"
+    INSCRIPTIONS ||--|| TOURNOIS : "pour le tournoi"
+    MATCHS ||--|| TOURNOIS : "participe à"
+    MATCHS ||--|| JOUEURS : "joueur 1"
+    MATCHS ||--|| JOUEURS : "joueur 2"
+    RESULTATS ||--|| MATCHS : "enregistre"
+    RESULTATS ||--|| JOUEURS : "gagnant"
 
-    JOUEURS ||--o{ INSCRIPTIONS : participe à
-    TOURNOIS ||--o{ INSCRIPTIONS : inscrit
-    INSCRIPTIONS ||--|{ MATCHS : "pour le tournoi"
-    MATCHS ||--|{ JOUEURS : "joueur 1"
-    MATCHS ||--|{ JOUEURS : "joueur 2"
-    MATCHS ||--o| RESULTATS : "enregistre"
-    RESULTATS ||--|{ JOUEURS : "gagnant"
     
 ```
 ## Conception et Structure des Tables
