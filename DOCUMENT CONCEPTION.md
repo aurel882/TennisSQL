@@ -100,6 +100,11 @@ match_id : Identifiant du match (clé étrangère vers la table matchs).
 
 gagnant_id : Identifiant du joueur gagnant (clé étrangère vers la table joueurs).
 
+### 5. Table inscriptions : 
+
+La table lie les joueurs aux tournois auxquels ils sont inscrits.
+
+
 ## Optimisations et Limitations
 ### Optimisations :
 1.Indexation :
