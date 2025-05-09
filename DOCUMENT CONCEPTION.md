@@ -76,7 +76,7 @@ erDiagram
         INT joueur_id
         INT tournoi_id
     }
-    
+
     INSCRIPTIONS ||--|| JOUEURS : "inscrit"
     INSCRIPTIONS ||--|| TOURNOIS : "pour le tournoi"
     MATCHS ||--|| TOURNOIS : "participe à"
@@ -84,6 +84,7 @@ erDiagram
     MATCHS ||--|| JOUEURS : "joueur 2"
     RESULTATS ||--|| MATCHS : "enregistre"
     RESULTATS ||--|| JOUEURS : "gagnant"
+
 ```
 ## Conception et Structure des Tables
 
