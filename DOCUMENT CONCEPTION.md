@@ -46,40 +46,6 @@ La portée de ce projet est limitée à la gestion d'un tournoi simple. Le tourn
 
 ## Schéma de la Base de Données
 
-Le schéma de la base de données est représenté sous forme de diagramme relationnel (ERD) pour visualiser les relations entre les différentes entités de la base de données.
-
-```mermaid
-erDiagram
-    JOUEURS {
-        INT joueur_id
-        STRING nom
-        STRING classement
-    }
-    TOURNOIS {
-        INT tournoi_id
-        STRING nom
-        STRING lieu
-        DATE date_debut
-        DATE date_fin
-    }
-    MATCHS {
-        INT match_id
-        INT tournoi_id
-        INT joueur_1_id
-        INT joueur_2_id
-        STRING score_match
-    }
-    RESULTATS {
-        INT resultats_id
-        INT match_id
-        INT gagnant_id
-    }
-    
-    JOUEURS ||--o| MATCHS : participe_a
-    TOURNOIS ||--o| MATCHS : contient
-    MATCHS ||--|{ RESULTATS : "résultat de"
-    RESULTATS ||--|| JOUEURS : "gagnant"
-
 ## Conception et Structure des Tables
 
 ### 1. Table joueurs
