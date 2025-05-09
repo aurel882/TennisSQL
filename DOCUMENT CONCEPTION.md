@@ -86,7 +86,6 @@ erDiagram
     RESULTATS ||--|| MATCHS : "enregistre"
     RESULTATS ||--|| JOUEURS : "gagnant"
 
-    
 ```
 ## Conception et Structure des Tables
 
