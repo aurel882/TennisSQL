@@ -1,7 +1,7 @@
 
 # Document de Conception - Tournoi de Tennis Multichance
 
-*Auteur : Votre Nom*
+*Auteur : Aurélien BRESSON*
 
 ---
 
