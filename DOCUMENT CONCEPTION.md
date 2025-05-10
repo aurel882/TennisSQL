@@ -1,5 +1,5 @@
 
-# Document de Conception - Tournoi de Tennis Multichance
+# Document de Conception - Tournoi de Tennis Multi chances
 
 *Auteur : Aurélien BRESSON*
 
@@ -7,19 +7,18 @@
 
 ## Introduction
 
-Le projet consiste à développer une base de données pour gérer un tournoi de tennis fictif. L'objectif est de suivre les matchs, d'enregistrer les résultats, et de calculer les statistiques des joueurs. Ce système est conçu pour permettre une gestion simplifiée d'un tournoi de tennis en utilisant des règles classiques d'élimination directe, avec des matchs en 3 sets.
-
+Le projet consiste à développer une base de données pour gérer un tournoi de tennis fictif. L'objectif est de suivre les matchs, d'enregistrer les résultats, et de calculer les statistiques des joueurs. Ce système est conçu pour permettre une gestion simplifiée d'un tournoi de tennis multi chances. Un tournoi multichances est un tournoi qui garanti aux joueurs de disputer plusieurs matchs même en cas de défaites puisque le nombre de matches que vous allez disputer ne dépend pas de vos résultats mais du nombre de participants. Les tournois multi chances opposent des joueurs ayant un niveau équivalent. 
 ---
 
 ## Objectif du Projet
 
-Le but de ce projet est de créer une base de données fonctionnelle pour un tournoi de tennis. Cette base de données doit permettre de :
+Le but de ce projet est de créer une base de données fonctionnelle pour un tournoi de tennis multi chances. Cette base de données doit permettre de :
 
 - Ajouter un tournoi avec ses informations (nom, lieu, dates).
 - Ajouter des joueurs avec leurs classements.
 - Créer des matchs entre les joueurs avec des scores réalistes.
 - Enregistrer les résultats des matchs (gagnant/perdant).
-- Calculer le podium en fonction des victoires des joueurs.
+- Calculer le vainqueur en fonction des victoires des joueurs.
 
 ---
 
@@ -32,15 +31,22 @@ La portée de ce projet est limitée à la gestion d'un tournoi simple. Le tourn
 ## Entités et Relations
 
 ### Entités :
-1. **joueurs** : Contient les informations de chaque joueur (nom, classement).
-2. **tournois** : Contient les informations du tournoi (nom, lieu, dates de début et de fin).
-3. **matchs** : Contient les informations des matchs, tels que les joueurs participants et les scores.
-4. **resultats** : Contient les résultats des matchs, avec le joueur gagnant.
+
+joueurs : Contient les informations sur chaque joueur, telles que le nom et le classement du joueur.
+
+tournois : Contient les informations des tournois, telles que le nom, lieu, date_debut, et date_fin.
+
+matchs : Contient les informations des matchs, incluant les joueur_1_id, joueur_2_id (références aux joueurs) et le score_match.
+
+resultats : Contient les résultats des matchs, incluant le match_id et gagnant_id (références à un joueur qui a gagné).
+
+inscriptions : Contient les informations sur les joueurs inscrits à des tournois, avec des références aux tables joueurs et tournois.
 
 ### Relations :
-- **Un tournoi** peut avoir plusieurs **matchs**.
-- **Un match** implique deux **joueurs** (référencés par leurs `joueur_id`).
-- **Un match** a un **gagnant** enregistré dans la table **resultats**.
+- **Un tournoi** peut avoir plusieurs **matchs**.  **Un tournoi** est lié à plusieurs **matchs**, chaque match ayant un identifiant unique (match_id).
+- **Un match** implique deux **joueurs** (référencés par leurs `joueur_id`),  qui sont des références aux joueurs de la table joueurs.
+- **Un match** a un **gagnant** enregistré dans la table **resultats** : La table resultats enregistre l'identifiant du gagnant (gagnant_id), qui est une référence à un joueur_id dans la table joueurs.
+- **Un joueur** peut être inscrit à plusieurs **tournois** : La table inscriptions fait le lien entre un joueur et un tournoi, chaque inscription étant reliée à un tournoi spécifique et à un joueur spécifique via joueur_id et tournoi_id.
 
 ---
 
