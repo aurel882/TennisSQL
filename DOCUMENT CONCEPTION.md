@@ -8,6 +8,7 @@
 ## Introduction
 
 Le projet consiste à développer une base de données pour gérer un tournoi de tennis fictif. L'objectif est de suivre les matchs, d'enregistrer les résultats, et de calculer les statistiques des joueurs. Ce système est conçu pour permettre une gestion simplifiée d'un tournoi de tennis multi chances. Un tournoi multichances est un tournoi qui garanti aux joueurs de disputer plusieurs matchs même en cas de défaites puisque le nombre de matches que vous allez disputer ne dépend pas de vos résultats mais du nombre de participants. Les tournois multi chances opposent des joueurs ayant un niveau équivalent. 
+
 ---
 
 ## Objectif du Projet
