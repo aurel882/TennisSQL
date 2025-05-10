@@ -34,8 +34,10 @@ git clone https://github.com/ton-utilisateur/tournoi-tennis.git
 cd tournoi-tennis
 ```
 ## Limitations et Améliorations
-### Limitation :  Ce projet gère un seul tournoi à la fois et ne prend pas en charge les abandons ou les blessures.
-### Amélioration : Ajouter des statistiques avancées sur les performances des joueurs et permettre la gestion de plusieurs tournois simultanément.
+### Limitation :
+Ce projet gère un seul tournoi à la fois et ne prend pas en charge les abandons ou les blessures.
+### Amélioration :
+Ajouter des statistiques avancées sur les performances des joueurs et permettre la gestion de plusieurs tournois simultanément.
 
 ## Licence
 Ce projet est sous licence MIT.
