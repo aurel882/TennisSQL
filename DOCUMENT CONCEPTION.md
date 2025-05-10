@@ -167,4 +167,4 @@ L'index sur la colonne gagnant_id dans la table resultats permet d'accélérer l
 
 ### Conclusion 
 
-Ce projet présente une solution simple pour gérer un tournoi de tennis avec des joueurs, des matchs et des résultats. Il démontre l'utilisation de SQL pour créer une base de données relationnelle, gérer des entités interconnectées et effectuer des requêtes sur les données. Les optimisations, telles que l'indexation des colonnes fréquemment utilisées et l'usage de clés primaires et étrangères, permettent d'assurer une manipulation rapide et fiable des données.
+Ce projet fournit une solution efficace pour gérer un tournoi de tennis multi-chances, avec des fonctionnalités de base comme la gestion des joueurs, des matchs et des résultats. Cependant, plusieurs améliorations sont possibles, telles que la gestion de plusieurs tournois simultanés, l'ajout d'analyses statistiques avancées, ou encore la gestion des abandons. Un suivi en temps réel des matchs et des optimisations sur les requêtes pourraient aussi enrichir le système, le rendant plus interactif et performant.
