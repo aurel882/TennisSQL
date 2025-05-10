@@ -96,61 +96,54 @@ erDiagram
 ```
 ## Conception et Structure des Tables
 
-### 1. Table joueurs
+### 1. Table `joueurs`
 
-La table joueurs contient des informations de base sur les joueurs, notamment leur nom et leur classement. Le joueur_id est une clé primaire auto-incrémentée pour identifier chaque joueur de manière unique.
+La table `joueurs` contient des informations de base sur les joueurs, notamment leur nom et leur classement. Le `joueur_id` est une clé primaire auto-incrémentée pour identifier chaque joueur de manière unique.
 
-colonnes :
+#### Colonnes :
+- **`joueur_id`** : Identifiant unique du joueur (clé primaire).
+- **`nom`** : Nom du joueur.
+- **`classement`** : Classement du joueur ( "30" ou "15/5").
 
-joueur_id : Identifiant unique du joueur (clé primaire).
+### 2. Table `tournois`
 
-nom : Nom du joueur.
+La table `tournois` enregistre les informations concernant les tournois organisés, telles que le nom, le lieu, et la période.
 
-classement : Classement du joueur, par exemple, "30", "15/5", ou "0".
+#### Colonnes :
+- **`tournoi_id`** : Identifiant unique du tournoi (clé primaire).
+- **`nom`** : Nom du tournoi.
+- **`lieu`** : Lieu où se déroule le tournoi.
+- **`date_debut`** : Date de début du tournoi.
+- **`date_fin`** : Date de fin du tournoi.
 
-### 2.Table tournois
+### 3. Table `matchs`
 
-La table tournois enregistre les informations concernant les tournois organisés, comme le nom, le lieu, et la période.
+La table `matchs` contient les informations relatives aux matchs joués dans un tournoi. Elle fait référence aux joueurs participants au match et enregistre le score du match.
 
-colonnes :
+#### Colonnes :
+- **`match_id`** : Identifiant unique du match (clé primaire).
+- **`tournoi_id`** : Identifiant du tournoi (clé étrangère vers la table `tournois`).
+- **`joueur_1_id`** et **`joueur_2_id`** : Identifiants des joueurs participant au match (clés étrangères vers la table `joueurs`).
+- **`score_match`** : Le score du match, stocké sous forme de texte (par exemple, "6-4, 4-6, 6-0").
 
-tournoi_id : Identifiant unique du tournoi (clé primaire).
+### 4. Table `resultats`
 
-nom : Nom du tournoi.
+La table `resultats` enregistre le gagnant de chaque match. Elle fait référence à l'id du match et à l'id du gagnant.
 
-lieu : Lieu où se déroule le tournoi.
+#### Colonnes :
+- **`resultats_id`** : Identifiant unique du résultat (clé primaire).
+- **`match_id`** : Identifiant du match (clé étrangère vers la table `matchs`).
+- **`gagnant_id`** : Identifiant du joueur gagnant (clé étrangère vers la table `joueurs`).
 
-date_debut et date_fin : Les dates de début et de fin du tournoi.
+### 5. Table `inscriptions`
 
-### 3.Table matchs
+La table `inscriptions` lie les joueurs aux tournois auxquels ils sont inscrits. Un joueur peut participer à plusieurs tournois, et chaque inscription est associée à un tournoi spécifique.
 
-La table matchs contient les informations relatives aux matchs joués dans le tournoi. Elle fait référence aux joueurs participant au match et enregistre le score du match.
+#### Colonnes :
+- **`inscription_id`** : Identifiant unique de l'inscription (clé primaire).
+- **`joueur_id`** : Identifiant du joueur inscrit (clé étrangère vers la table `joueurs`).
+- **`tournoi_id`** : Identifiant du tournoi auquel le joueur est inscrit (clé étrangère vers la table `tournois`).
 
-colonnes :
-
-match_id : Identifiant unique du match (clé primaire).
-
-tournoi_id : Identifiant du tournoi (clé étrangère vers la table tournois).
-
-joueur_1_id et joueur_2_id : Identifiants des joueurs participant au match (clé étrangère vers la table joueurs).
-
-score_match : Le score du match, stocké sous forme de texte (par exemple, "6-4, 4-6, 6-0").
-
-### 4. Table resultats
-
-La table resultats enregistre le gagnant de chaque match, en référence à l'id du match et de celui du gagnant.
-
-colonnes :
-
-resultats_id : Identifiant unique du résultat (clé primaire).
-
-match_id : Identifiant du match (clé étrangère vers la table matchs).
-
-gagnant_id : Identifiant du joueur gagnant (clé étrangère vers la table joueurs).
-
-### 5. Table inscriptions : 
-
-La table lie les joueurs aux tournois auxquels ils sont inscrits.
 
 
 ## Optimisations et Limitations
